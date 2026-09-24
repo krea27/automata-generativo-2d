@@ -1,4 +1,6 @@
 # 🌌 Autómata 2D Generativo · Morfismo de Imágenes & Audio FX
+   
+https://krea27.github.io/automata-generativo-2d/
 
 Sistema interactivo de arte generativo basado en **autómatas celulares 2D continuos (ecuación de difusión)**, curvas de nivel topológicas y morfismo fluido de imágenes con síntesis y modulación de audio reactivo.
 
