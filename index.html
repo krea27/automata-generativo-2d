@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autómata 2D Generativo - Morfismo de Imágenes</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+  <body>
+    <!-- Botón flotante para abrir/cerrar controles si está oculto -->
+    <button id="btn-toggle-ui" class="ui-toggle-btn" title="Mostrar / Ocultar controles (Tecla H)">
+      ⚙️ Controles
+    </button>
+
+    <!-- Overlay de Drag & Drop -->
+    <div id="drop-overlay" class="drop-overlay">
+      <div class="drop-content">
+        <div class="drop-icon">🖼️</div>
+        <h2>Suelta tus imágenes aquí</h2>
+        <p>Soporta JPG, PNG, WebP</p>
+      </div>
+    </div>
+
+    <!-- Panel Lateral de Controles (Glassmorphism lateral) -->
+    <aside id="ui-container" class="ui-panel ui-lateral">
+      <div class="ui-header">
+        <div class="title-wrap">
+          <span class="pulse-indicator"></span>
+          <h1>Autómata 2D</h1>
+        </div>
+        <button id="btn-close-ui" class="close-btn" title="Ocultar controles (Tecla H)">✕</button>
+      </div>
+
+      <div class="status-badge" id="image-badge">Imágenes: 3 (Demostración)</div>
+
+      <div class="ui-controls">
+        <button id="btn-upload" class="btn btn-upload" title="Seleccionar fotos de tu equipo">
+          📂 Cargar Imágenes
+        </button>
+        <input type="file" id="file-input" multiple accept="image/*" style="display: none;" />
+        
+        <button id="btn-next" class="btn" title="Atajo: Barra Espaciadora">
+          ⏭ Siguiente
+        </button>
+
+        <button id="btn-mode" class="btn btn-secondary">
+          🎨 Modo: <span id="mode-label">Color RGB</span>
+        </button>
+
+        <button id="btn-res" class="btn btn-secondary" title="Cambiar resolución de simulación">
+          🔍 Nitidez: <span id="res-label">Alta (2px)</span>
+        </button>
+
+        <button id="btn-pause" class="btn btn-secondary">
+          ⏸ <span id="pause-label">Pausar</span>
+        </button>
+
+        <button id="btn-sound" class="btn btn-secondary" title="Activar/Silenciar sonido interactivo">
+          🔊 Audio FX: <span id="sound-label">Activo</span>
+        </button>
+
+        <button id="btn-audio-next" class="btn btn-secondary" title="Cambiar pista de sonido (Atajo: Tecla A)">
+          🎵 Pista: <span id="audio-track-label">Dark Drone</span>
+        </button>
+
+        <button id="btn-audio-upload" class="btn btn-secondary" title="Subir otro archivo de audio (WAV, MP3, OGG)">
+          ➕ Cargar Canción
+        </button>
+        <input type="file" id="audio-file-input" accept="audio/*" style="display: none;" />
+      </div>
+
+      <div class="ui-sliders">
+        <div class="slider-group">
+          <label for="vol-slider">Volumen FX: <span id="vol-val">80%</span></label>
+          <input type="range" id="vol-slider" min="0" max="100" step="5" value="80">
+        </div>
+        <div class="slider-group">
+          <label for="decay-slider">Decaimiento / Onda: <span id="decay-val">1.1</span></label>
+          <input type="range" id="decay-slider" min="0.2" max="4.0" step="0.1" value="1.1">
+        </div>
+        <div class="slider-group">
+          <label for="warp-slider">Fluidez Líquida: <span id="warp-val">100%</span></label>
+          <input type="range" id="warp-slider" min="0" max="200" step="10" value="100">
+        </div>
+        <div class="slider-group">
+          <label for="speed-slider">Tiempo de transición: <span id="speed-val">6.0s</span></label>
+          <input type="range" id="speed-slider" min="2" max="15" step="0.5" value="6.0">
+        </div>
+      </div>
+
+      <div class="ui-tips">
+        <span>💡 Pasa el pincel con el mouse para modular el pitch y velocidad del audio · <b>Espacio</b>: Siguiente · <b>H</b>: Ocultar panel</span>
+      </div>
+    </aside>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>
